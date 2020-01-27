@@ -1,15 +1,22 @@
 let money = prompt('Ваш месячный доход?', '1000');
 console.log('money: ', money);
+
 let income = 'фриланс';
 let deposit = confirm('Есть ли у вас депозит в банке?');
-console.log('deposit: ', deposit);
-let mission = 10000;
-let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую',
-'спорт, курсы, интернет');
 
-console.log('addExpenses: ', addExpenses);
+console.log('deposit: ', deposit);
+
+let mission = prompt('Цель заработать?', '10000');
+console.log('mission: ', mission);
+
+
+let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую',
+['спорт, курсы, интернет']);
+
+console.log(addExpenses.split(', '));
 
 let period = 12;
+let budgetDay = 100;
 let expenses1 = prompt('Введите обязательную статью расходов?');
 
 console.log('expenses1: ', expenses1);
@@ -24,7 +31,10 @@ let amount2 = prompt('Во сколько это обойдется?');
 console.log('amount2: ', amount2);
 
 let budgetMonth = money - amount1 - amount2;
-console.log(budgetMonth);
+console.log(Math.ceil(budgetMonth));
+
+
+
 
 // console.log(typeof 1000);
 // console.log(typeof 'фриланс');
@@ -36,8 +46,7 @@ console.log(budgetMonth);
 // console.log(addExpenses.toLowerCase());
 // console.log(addExpenses.split(', '));
 
-let budgetDay = 100;
-console.log(budgetDay);
+
 
 
 
