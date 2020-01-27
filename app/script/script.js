@@ -36,8 +36,8 @@ console.log(budgetMonth);
 // console.log(addExpenses.toLowerCase());
 // console.log(addExpenses.split(', '));
 
-// let budgetDay = 100;
-// console.log(budgetDay);
+let budgetDay = 100;
+console.log(budgetDay);
 
 
 
