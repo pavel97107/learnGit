@@ -1,22 +1,45 @@
-let money = 1000;
+let money = prompt('Ваш месячный доход?', '1000');
+console.log('money: ', money);
 let income = 'фриланс';
-let deposit = true;
+let deposit = confirm('Есть ли у вас депозит в банке?');
+console.log('deposit: ', deposit);
 let mission = 10000;
-let addExpenses = 'спорт, курсы, интернет';
+let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую',
+'спорт, курсы, интернет');
+
+console.log('addExpenses: ', addExpenses);
+
 let period = 12;
+let expenses1 = prompt('Введите обязательную статью расходов?');
 
-console.log(typeof 1000);
-console.log(typeof 'фриланс');
-console.log(typeof true);
-console.log(addExpenses.length);
+console.log('expenses1: ', expenses1);
 
-console.log('Период равен 12 месяцев' + " и " + 'Цель заработать 10000 белорусских рублей.');
+let expenses2 = prompt('Введите обязательную статью расходов?');
+console.log('expenses2: ', expenses2);
 
-console.log(addExpenses.toLowerCase());
-console.log(addExpenses.split(', '));
+let amount1 = prompt('Во сколько это обойдется?');
+console.log('amount1: ', amount1);
 
-let budgetDay = 100;
-console.log(budgetDay);
+let amount2 = prompt('Во сколько это обойдется?');
+console.log('amount2: ', amount2);
+
+let budgetMonth = money - amount1 - amount2;
+console.log(budgetMonth);
+
+// console.log(typeof 1000);
+// console.log(typeof 'фриланс');
+// console.log(typeof true);
+// console.log(addExpenses.length);
+
+// console.log('Период равен 12 месяцев' + " и " + 'Цель заработать 10000 белорусских рублей.');
+
+// console.log(addExpenses.toLowerCase());
+// console.log(addExpenses.split(', '));
+
+// let budgetDay = 100;
+// console.log(budgetDay);
+
+
 
 // //////////////////////////////////////////////////////////////////
 
