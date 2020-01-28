@@ -47,12 +47,6 @@ if (budgetDay >= 1200) {
     console.log('Что то пошло нет так');
 }
 
-let namePerson = 'Слава';
 
-let result = namePerson === 'Артем' ? 'Директор' : 'Студент';
-console.log('result: ', result);
-
-let result2 = namePerson === 'Максим' ? 'Преподователь' : 'Студент';
-console.log('result2: ', result2);
 
 
