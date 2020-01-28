@@ -37,7 +37,7 @@ console.log(Math.floor(mission / budgetMonth));
 let budgetDay = Math.round (budgetMonth / 30); 
 console.log('budgetDay: ', budgetDay);
 
-if (budgetDay > 1200) {
+if (budgetDay >= 1200) {
     console.log('У вас высокий уровень дохода');
 } else if (budgetDay > 600) {
     console.log('У вас средний уровень дохода');
@@ -47,9 +47,12 @@ if (budgetDay > 1200) {
     console.log('Что то пошло нет так');
 }
 
+let namePerson = 'Слава';
 
+let result = namePerson === 'Артем' ? 'Директор' : 'Студент';
+console.log('result: ', result);
 
-
-
+let result2 = namePerson === 'Максим' ? 'Преподователь' : 'Студент';
+console.log('result2: ', result2);
 
 
