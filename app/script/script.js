@@ -1,33 +1,53 @@
 'use strick';
+let money,
+start = function(){
+    do {
+    money = prompt('Ваш месячный доход?');
+    console.log('Месячный доход: ', money);
+}
+while (isNaN(money) || money === ' ' || money === null);
+};
+
+start();
+
+
+let appData = {
+    income: {},
+    addIncome: [],
+    expenses: {},
+    addExpenses: [],
+    deposit: false,
+    mission: 50000,
+    period: 3,
+    asking: function(){
+      let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую',
+        ['спорт, курсы, интернет']);
+            appData.addExpenses = addExpenses.toLowerCase().split(', ');
+            appData.deposit = confirm('Есть ли у вас депозит в банке?');
+    }
+
+};
+
+
 
 let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
-let money;
-let income = 'фриланс';
-let deposit = confirm('Есть ли у вас депозит в банке?');
+
+
 let mission = +prompt('Цель заработать?', 30000);
-let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую',
-    ['спорт, курсы, интернет']);
 
-
-console.log(addExpenses.split(', '));
 console.log('Цель заработать:' , mission);
-console.log('Депозит: ', deposit);
+console.log('Депозит: ', appData.deposit);
 
-do {
-    money = prompt('Ваш месячный доход?');
-    console.log('Месячный доход: ', money);
-}
-while (!isNumber(money));
 
 
 function showTypeOf(iteam) {
     console.log(typeof (iteam));
 }
 showTypeOf(money);
-showTypeOf(income);
-showTypeOf(deposit);
+showTypeOf(appData.income);
+showTypeOf(appData.deposit);
 
 
 let expenses = [];
