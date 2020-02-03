@@ -68,7 +68,6 @@ let appData = {
         return (appData.budget - appData.expensesMonth);
     },
 
-    
     getTargetMonth: function() {
       return Math.ceil(appData.mission / accumulatedMonth);
     },
@@ -99,6 +98,6 @@ appData.budgetMonth = accumulatedMonth;
 appData.budgetDay = dayBudget;
 appData.period = targetMonth;
 for (let key in (appData)) {
-    console.log("Наша программа включает в себя данные: " + "Ключ: " + key + " Значение: " + appData[key]);
+    console.log("Наша программа включает в  себя данные: " + "Ключ: " + key + " Значение: " + appData[key]);
 }
 
