@@ -16,13 +16,24 @@ while (isNaN(money) || money === ' ' || money === null);
 start();
 
 
+
+
 let appData = {
     income: {},
     addIncome: [],
+    mission: function(){
+        let resultMission = 0;
+        resultMission = +prompt('Цель заработать?', 30000);
+        return resultMission;
+    },
     addExpenses: [],
     deposit: false,
+    expenses: {},
     period: 3,
     budget: money,
+    budgetDay: 0,
+    budgetMonth: 0,
+    expensesMonth: 0,
     asking: function(){
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую',
           ['спорт, курсы, интернет']);
@@ -50,22 +61,19 @@ let appData = {
 
 
       },
-      expenses: {},
     getExpensesMonth:function(){
         let res = 0;
         for (let key of Object.values(appData.expenses)) {
         res += key;
         appData.expensesMonth = res;
-        console.log(appData.expensesMonth);
     } 
     return res;
     },
     
-    getAccumulatedMonth: function() {
-        return (appData.budget - expensesAmount); 
+    getBudget: function() {
+        return (appData.budget - appData.expensesMonth); 
     },
 
-    mission: 50000,
     getTargetMonth: function(a, b) {
         if (Math.ceil(a / b) > 0) {
             console.log('Цель будет достигнута за ', Math.ceil(a / b), 'месяцев');
@@ -89,14 +97,14 @@ let appData = {
 
 };
 appData.asking();
-let mission = +prompt('Цель заработать?', 30000);
+
 let expensesAmount = appData.getExpensesMonth();
-let accumulatedMonth = appData.getAccumulatedMonth();
-let targetMonth = appData.getTargetMonth(mission, accumulatedMonth);
+let accumulatedMonth = appData.getBudget();
+let targetMonth = appData.getTargetMonth(appData.mission, accumulatedMonth);
 let dayBudget = appData.budgetDay();
 let statusIncome = appData.getStatusIncome();
 
-console.log('Цель заработать:' , mission);
+console.log('Цель заработать:' , appData.mission());
 console.log('Возможные расходы: ',appData.addExpenses);
 console.log('Депозит: ', appData.deposit);
 console.log('Расходы за месяц: ' +  expensesAmount); // сумма рассходов // возвращает сумму накопления (доходы-расходы)
