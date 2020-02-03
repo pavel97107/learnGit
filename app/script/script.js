@@ -52,18 +52,13 @@ let appData = {
       },
       expenses: {},
     getExpensesMonth:function(){
-        let expenses = [];
-        let sum = 0;
-        for ( let i = 0; i < 2; i ++) {
-            expenses [i] = prompt('Введите обязательную статью расхода');
-            sum += +prompt('Во сколько это обойдется');
-            while (!isNumber(sum)) {
-                sum = +prompt('Во сколько это обойдется');
-            }
-        }
-        console.log(expenses);
-        console.log(sum);
-        return(sum);
+        let res = 0;
+        for (let key of Object.values(appData.expenses)) {
+        res += key;
+        appData.expensesMonth = res;
+        console.log(appData.expensesMonth);
+    } 
+    return res;
     },
     
     getAccumulatedMonth: function() {
