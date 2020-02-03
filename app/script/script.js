@@ -8,7 +8,6 @@ let money,
 start = function(){
     do {
     money = prompt('Ваш месячный доход?');
-    console.log('Месячный доход: ', money);
 }
 while (isNaN(money) || money === ' ' || money === null);
 };
@@ -30,7 +29,7 @@ let appData = {
     deposit: false,
     expenses: {},
     period: 3,
-    budget: money,
+    budget: console.log('Уровень дохода: '+ money), 
     budgetDay: 0,
     budgetMonth: 0,
     expensesMonth: 0,
@@ -44,7 +43,6 @@ let appData = {
                   res = 0,
                   question;
               
-
                for ( let i = 0; i < 2; i ++) {
                   question = prompt('Введите обязательную статью расхода');        
                   sum = prompt('Во сколько это обойдется');
@@ -53,21 +51,16 @@ let appData = {
                   }
                   appData.expenses[question] = +sum;
               }
-
-              
-              console.log(appData.expenses);
-
               return res;
-
-
       },
     getExpensesMonth:function(){
         let res = 0;
         for (let key of Object.values(appData.expenses)) {
-        res += key;
-        appData.expensesMonth = res;
-    } 
-    return res;
+            res += key;
+            appData.expensesMonth = res;  
+        } 
+        console.log('Расходы за месяц: ' + appData.expensesMonth);
+        return res;
     },
     
     getBudget: function() {
@@ -80,7 +73,9 @@ let appData = {
         } else if (Math.ceil(a / b) <= 0) {
             console.log('Цель не будет достигнута');
         }
+        return;
     },
+
     budgetDay: function() {
         return Math.ceil(accumulatedMonth / 30);
     },
@@ -96,19 +91,15 @@ let appData = {
     }
 
 };
+let resMission = appData.mission();
 appData.asking();
-
 let expensesAmount = appData.getExpensesMonth();
 let accumulatedMonth = appData.getBudget();
-let targetMonth = appData.getTargetMonth(appData.mission, accumulatedMonth);
+let targetMonth = appData.getTargetMonth(resMission, accumulatedMonth);
+targetMonth();
 let dayBudget = appData.budgetDay();
 let statusIncome = appData.getStatusIncome();
 
-console.log('Цель заработать:' , appData.mission());
-console.log('Возможные расходы: ',appData.addExpenses);
-console.log('Депозит: ', appData.deposit);
-console.log('Расходы за месяц: ' +  expensesAmount); // сумма рассходов // возвращает сумму накопления (доходы-расходы)
-console.log('Месячное накопление', accumulatedMonth);
-console.log('Бюджет на день', dayBudget);
-console.log(appData.getStatusIncome());
+
+
 
