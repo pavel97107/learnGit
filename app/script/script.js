@@ -19,7 +19,6 @@ start();
 let appData = {
     income: {},
     addIncome: [],
-    expenses: {},
     addExpenses: [],
     deposit: false,
     period: 3,
@@ -29,7 +28,29 @@ let appData = {
           ['спорт, курсы, интернет']);
               appData.addExpenses = addExpenses.toLowerCase().split(', ');
               appData.deposit = confirm('Есть ли у вас депозит в банке?');
+
+              let sum = 0,
+                  res = 0,
+                  question;
+              
+
+               for ( let i = 0; i < 2; i ++) {
+                  question = prompt('Введите обязательную статью расхода');        
+                  sum = prompt('Во сколько это обойдется');
+                  while (!isNumber(sum)) {
+                      sum = prompt('Во сколько это обойдется');
+                  }
+                  appData.expenses[question] = +sum;
+              }
+
+              
+              console.log(appData.expenses);
+
+              return res;
+
+
       },
+      expenses: {},
     getExpensesMonth:function(){
         let expenses = [];
         let sum = 0;
