@@ -10,13 +10,13 @@ let buttonStart = document.getElementById('start'),
     additionalIncomeTitleTwo = addIncomeItem.item(1);
 
     
-let resultBudgetMonth = document.getElementsByClassName('.budget_month-value'),
-    resultBudgetDay = document.getElementsByClassName('.budget_day-value'),
-    resultEXpensesMonth = document.getElementsByClassName('.expenses_month-value'),
-    resultAdditionalIncome = document.getElementsByClassName('.additional_income-value'),
-    resultAdditionalExpenses = document.getElementsByClassName('.additional_expenses-value'),
-    resultIncomePeriod = document.getElementsByClassName('.income_period-value'),
-    resultTargetMonth = document.getElementsByClassName('.target_month-value');
+let resultBudgetMonth = document.getElementsByClassName('budget_month-value'),
+    resultBudgetDay = document.getElementsByClassName('budget_day-value'),
+    resultEXpensesMonth = document.getElementsByClassName('expenses_month-value'),
+    resultAdditionalIncome = document.getElementsByClassName('additional_income-value'),
+    resultAdditionalExpenses = document.getElementsByClassName('additional_expenses-value'),
+    resultIncomePeriod = document.getElementsByClassName('income_period-value'),
+    resultTargetMonth = document.getElementsByClassName('target_month-value');
 
     let salaryAmount = document.querySelector('.salary-amount'),
         iconItems = document.querySelectorAll('.income-items input'),
