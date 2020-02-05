@@ -1,14 +1,15 @@
 'use strict';
 
 let buttonStart = document.getElementById('start'),
-    buttonPlus = document.getElementsByTagName('button' [0]),
-    TwoButtonPlus = document.getElementsByTagName('button' [1]),
+    btn = document.getElementsByTagName('button'),
+    buttonPlus = btn.item(0),
+    TwoButtonPlus = btn.item(1),
     checkBox = document.querySelector('#deposit-check'),
-    addIncomeItem = document.querySelectorAll('.additional_income'),
-    additionalIncomeTitle = document.querySelectorAll('.additional_income' [1]),
-    additionalIncomeTitleTwo = document.querySelectorAll('.additional_income' [2]);
+    addIncomeItem = document.querySelectorAll('.additional_income input'),
+    additionalIncomeTitle = addIncomeItem.item(0),
+    additionalIncomeTitleTwo = addIncomeItem.item(1);
 
-
+    
 let resultBudgetMonth = document.getElementsByClassName('.budget_month-value'),
     resultBudgetDay = document.getElementsByClassName('.budget_day-value'),
     resultEXpensesMonth = document.getElementsByClassName('.expenses_month-value'),
@@ -18,17 +19,18 @@ let resultBudgetMonth = document.getElementsByClassName('.budget_month-value'),
     resultTargetMonth = document.getElementsByClassName('.target_month-value');
 
     let salaryAmount = document.querySelector('.salary-amount'),
-        iconItems = document.querySelectorAll('.income-items'),
-        icontTitle = document.querySelectorAll('.income-items'[0]),
-        icontAmount = document.querySelectorAll('.income-items'[1]),
-        expensesTitle = document.querySelector.querySelectorAll('.expenses-items'[0]),
-        expensesAmount = document.querySelector.querySelectorAll('.expenses-items'[1]),
-        additionalExpensesItem = document.querySelector.querySelectorAll('.additional_expenses'[1]);
+        iconItems = document.querySelectorAll('.income-items input'),
+        icontTitle = iconItems.item(0),
+        icontAmount = iconItems.item(1),
+        expensesItems = document.querySelectorAll('.expenses-items input'),
+        expensesTitle = expensesItems.item(0),
+        expensesAmount = expensesItems.item(1),
+        additionalExpenses = document.querySelectorAll('.additional_expenses input'),
+        additionalExpensesItem = additionalExpenses.item(0);
 
 
-let depositAmount = document.querySelectorAll('.deposit-calc'[0]),
-    depositPrecent = document.querySelectorAll('.deposit-calc'[1]),
+let depositCalc =  document.querySelectorAll('.deposit-calc input'),
+    depositAmount = depositCalc.item(0),
+    depositPrecent = depositCalc.item(1),
     targetAmount = document.querySelector('.target-amount'),
     periodSelect = document.querySelector('.period-select');
-
-       
