@@ -3,8 +3,8 @@
 let buttonStart = document.getElementById('start'),
     btn = document.getElementsByTagName('button'),
     buttonPlus = btn.item(0),
-    TwoButtonPlus = btn.item(1),
-    checkBox = document.querySelector('#deposit-check'),
+    incomePlus = btn.item(1),
+    depositCheck = document.querySelector('#deposit-check'),
     addIncomeItem = document.querySelectorAll('.additional_income input'),
     additionalIncomeTitle = addIncomeItem.item(0),
     additionalIncomeTitleTwo = addIncomeItem.item(1);
