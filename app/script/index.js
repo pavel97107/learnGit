@@ -220,26 +220,27 @@ let appData = {
     },
 
     blockInputAll: function(){
-    leftInputsOne.disabled = true;
-    leftInputsTwo.disabled = true; 
-    leftInputsThree.disabled = true;
-    leftInputsFor.disabled = true;
-    leftInputsFive.disabled = true;
-    leftInputsSix.disabled = true;
-    leftInputsSeven.disabled = true;
-    leftInputsEight.disabled = true;
-    leftInputsNine.disabled = true;
-    leftInputsEleven.disabled = true;
+        leftInputsOne.disabled = true;
+        leftInputsTwo.disabled = true; 
+        leftInputsThree.disabled = true;
+        leftInputsFor.disabled = true;
+        leftInputsFive.disabled = true;
+        leftInputsSix.disabled = true;
+        leftInputsSeven.disabled = true;
+        leftInputsEight.disabled = true;
+        leftInputsNine.disabled = true;
+        leftInputsEleven.disabled = true;
+        return;
     }
 
 };
-appData.blockInputAll();
 appData.blockButton();
 periodSelect.addEventListener('input',appData.getPeriodSelect);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 salaryAmount.addEventListener('input', appData.blockButton);
 start.addEventListener('click', appData.start.bind(appData)); // присвоили обработчик события кнопки Start(Рассчитать)
+start.addEventListener('click', appData.blockInputAll); // присвоили обработчик события кнопки Start(Рассчитать)
 
 let expensesAmountMounth = appData.getExpensesMonth();
 let accumulatedMonth = appData.getBudget();
