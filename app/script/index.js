@@ -60,28 +60,28 @@ let appData = {
     start: function(){
 
 
-    appData.budget = +salaryAmount.value;
+    this.budget = +salaryAmount.value;
     console.log('salaryAmount.value: ', salaryAmount.value);
-    
-    appData.getExpenses();
-    appData.getIncome();
-    appData.getExpensesMonth();
-    appData.getAddExpenses();
-    appData.getAddIncome();
-    appData.calcSavedMoney();
-    appData.getBudget();
-    appData.showResult();
+    this.getExpenses();
+    this.getIncome();
+    this.getExpensesMonth();
+    this.getAddExpenses();
+    this.getAddIncome();
+    this.calcSavedMoney();
+    this.getBudget();
+    this.showResult();
+    console.log(this);
     },
 
     showResult: function(){
-        resultBudgetMonth.value = appData.budgetMonth;
-        resultBudgetDay.value = appData.budgetDay;
-        resultExpensesMonth.value = appData.expensesMonth;
-        resultAdditionalExpenses.value = appData.addExpenses.join(', ');
-        resultAdditionalIncome.value = appData.addIncome.join(', ');
-        resultTargetMonth.value = appData.getTargetMonth();
-        resultIncomePeriod.value = appData.calcSavedMoney();
-        periodSelect.addEventListener('input', appData. getIncomePeriodValue);
+        resultBudgetMonth.value = this.budgetMonth;
+        resultBudgetDay.value = this.budgetDay;
+        resultExpensesMonth.value = this.expensesMonth;
+        resultAdditionalExpenses.value = this.addExpenses.join(', ');
+        resultAdditionalIncome.value = this.addIncome.join(', ');
+        resultTargetMonth.value = this.getTargetMonth();
+        resultIncomePeriod.value = this.calcSavedMoney();
+        periodSelect.addEventListener('input', this.getIncomePeriodValue);
     },
 
     addExpensesBlock: function(){
@@ -213,7 +213,7 @@ periodSelect.addEventListener('input',appData.getPeriodSelect);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 salaryAmount.addEventListener('input', appData.blockButton);
-start.addEventListener('click', appData.start); // присвоили обработчик события кнопки Start(Рассчитать)
+start.addEventListener('click', appData.start.bind(appData)); // присвоили обработчик события кнопки Start(Рассчитать)
 
 
 let expensesAmountMounth = appData.getExpensesMonth();
