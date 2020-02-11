@@ -191,7 +191,7 @@ let appData = {
     getPeriodSelect: function(){
         let periodAmount = document.querySelector('.period-amount');
         for(let i = 1; i <= 1;  i++){
-           periodAmount.textContent++;
+           periodAmount.textContent = periodSelect.value;
         }
 
     },
@@ -215,14 +215,14 @@ let appData = {
             let inputAll = leftInputAll[i];
             inputAll.disabled = true;
         }
-            function removeStart(){
+            function noneStart(){
                 start.setAttribute('style', 'display: none');
             }
             function addButtonReset(){
                 let cancel = document.querySelector('#cancel');
                 cancel.setAttribute('style', 'display: block');
             }
-            removeStart();
+            noneStart();
             addButtonReset();
     },
 
@@ -239,7 +239,6 @@ let appData = {
                 inputAll.disabled = false;
             }
         }
-
         function buttonOn(){
             start.setAttribute('style', 'display: block');
             cancel.setAttribute('style', 'display: none');
