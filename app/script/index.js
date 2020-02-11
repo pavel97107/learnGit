@@ -8,20 +8,9 @@ let start = document.getElementById('start'),
     addIncomeItem = document.querySelectorAll('.additional_income input'),
     additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
     additionalIncomeTitle = addIncomeItem.item(0),
-    additionalIncomeTitleTwo = addIncomeItem.item(1),
-    leftInputsOne = document.getElementsByTagName('input')[0],
-    leftInputsTwo = document.getElementsByTagName('input')[1],
-    leftInputsThree = document.getElementsByTagName('input')[2],
-    leftInputsFor = document.getElementsByTagName('input')[3],
-    leftInputsFive = document.getElementsByTagName('input')[4],
-    leftInputsSix = document.getElementsByTagName('input')[5],
-    leftInputsSeven = document.getElementsByTagName('input')[6],
-    leftInputsEight = document.getElementsByTagName('input')[7],
-    leftInputsNine = document.getElementsByTagName('input')[8],
-    leftInputsEleven = document.getElementsByTagName('input')[11];
-    
-    let taga = document.getElementsByTagName('input');
-    console.log(taga);
+    additionalIncomeTitleTwo = addIncomeItem.item(1);
+    let leftInputAll = document.querySelectorAll('input');
+    console.log(leftInputAll);
     
 let resultBudgetMonth = document.querySelector('.budget_month-value'),
     resultBudgetDay = document.querySelector('.budget_day-value'),
@@ -220,17 +209,16 @@ let appData = {
     },
 
     blockInputAll: function(){
-        leftInputsOne.disabled = true;
-        leftInputsTwo.disabled = true; 
-        leftInputsThree.disabled = true;
-        leftInputsFor.disabled = true;
-        leftInputsFive.disabled = true;
-        leftInputsSix.disabled = true;
-        leftInputsSeven.disabled = true;
-        leftInputsEight.disabled = true;
-        leftInputsNine.disabled = true;
-        leftInputsEleven.disabled = true;
-        return;
+        let leftInputAll = document.querySelectorAll('input');
+        for(let i = 0; i < leftInputAll.length; i++ ){
+            let inputAll = leftInputAll[i];
+            inputAll.disabled = true;
+        }
+            function titleReset(){
+                start = document.getElementById('start');
+                start.textContent = 'Сбросить';
+            }
+            titleReset();
     }
 
 };
