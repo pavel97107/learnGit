@@ -10,6 +10,7 @@ let start = document.getElementById('start'),
     additionalIncomeTitle = addIncomeItem.item(0),
     additionalIncomeTitleTwo = addIncomeItem.item(1);
     let leftInputAll = document.querySelectorAll('input');
+    let cancel = document.querySelector('#cancel');
     console.log(leftInputAll);
     
 let resultBudgetMonth = document.querySelector('.budget_month-value'),
@@ -209,16 +210,43 @@ let appData = {
     },
 
     blockInputAll: function(){
-        let leftInputAll = document.querySelectorAll('input');
+        let leftInputAll = document.querySelectorAll('.data input');
         for(let i = 0; i < leftInputAll.length; i++ ){
             let inputAll = leftInputAll[i];
             inputAll.disabled = true;
         }
-            function titleReset(){
-                start = document.getElementById('start');
-                start.textContent = 'Сбросить';
+            function removeStart(){
+                start.setAttribute('style', 'display: none');
             }
-            titleReset();
+            function addButtonReset(){
+                let cancel = document.querySelector('#cancel');
+                cancel.setAttribute('style', 'display: block');
+            }
+            removeStart();
+            addButtonReset();
+    },
+
+    resetInputAll: function(){
+        let leftInputAll = document.querySelectorAll('input');
+        for(let i = 0; i < leftInputAll.length; i++){
+            let resetInput = leftInputAll[i];
+            resetInput.value = '';
+        }
+        function noDisabled(){
+            let leftInputAll = document.querySelectorAll('.data input');
+            for(let i = 0; i < leftInputAll.length; i++ ){
+                let inputAll = leftInputAll[i];
+                inputAll.disabled = false;
+            }
+        }
+
+        function buttonOn(){
+            start.setAttribute('style', 'display: block');
+            cancel.setAttribute('style', 'display: none');
+            periodSelect.value = 1;
+        }
+        buttonOn();
+        noDisabled();
     }
 
 };
@@ -228,7 +256,8 @@ incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 salaryAmount.addEventListener('input', appData.blockButton);
 start.addEventListener('click', appData.start.bind(appData)); // присвоили обработчик события кнопки Start(Рассчитать)
-start.addEventListener('click', appData.blockInputAll); // присвоили обработчик события кнопки Start(Рассчитать)
+start.addEventListener('click', appData.blockInputAll);
+cancel.addEventListener('click', appData.resetInputAll);
 
 let expensesAmountMounth = appData.getExpensesMonth();
 let accumulatedMonth = appData.getBudget();
